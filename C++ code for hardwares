@@ -1,0 +1,59 @@
+#include "esp_camera.h"
+#include <WiFi.h>
+
+// Light sensor
+int ldrPin = 34;
+int lightValue;
+
+// WiFi
+const char* ssid = "YOUR_WIFI";
+const char* password = "YOUR_PASS";
+
+// Variables
+int focusScore = 0;
+int eyeHealth = 100;
+String stressLevel = "Low";
+
+void setup() {
+  Serial.begin(115200);
+
+  // Connect WiFi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("\nWiFi Connected");
+}
+
+void loop() {
+
+  // Read light sensor
+  lightValue = analogRead(ldrPin);
+
+  // Fake AI (replace with real ML logic)
+  focusScore = random(50, 100);
+
+  if (focusScore > 70) stressLevel = "Low";
+  else if (focusScore > 40) stressLevel = "Medium";
+  else stressLevel = "High";
+
+  // Eye health logic
+  if (lightValue < 300) {
+    eyeHealth -= 2;
+  } else {
+    eyeHealth += 1;
+  }
+
+  eyeHealth = constrain(eyeHealth, 0, 100);
+
+  // Output
+  Serial.println("------");
+  Serial.print("Focus: "); Serial.println(focusScore);
+  Serial.print("Stress: "); Serial.println(stressLevel);
+  Serial.print("Eye: "); Serial.println(eyeHealth);
+  Serial.print("Light: "); Serial.println(lightValue);
+
+  delay(2000);
+}
