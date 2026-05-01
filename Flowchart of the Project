@@ -1,0 +1,41 @@
+START
+  ↓
+Initialize System
+(Arduino / App / Camera / Sensors)
+  ↓
+Student Starts Study Session
+  ↓
+Check Study Mode Active?
+  ↓
+[YES] ---------------------- [NO]
+  ↓                           ↓
+Turn ON Camera           Stay Idle
+& Sensors                     ↓
+  ↓                      WAIT
+Capture Data
+(Camera + Light Sensor + App Usage)
+  ↓
+Process Data using AI
+  ↓
+Face Detection?
+  ↓
+[YES] ---------------------- [NO]
+  ↓                           ↓
+Analyze Focus Level      Mark as Distracted
+(Eye movement, posture)       ↓
+  ↓                      Reduce Focus Score
+Analyze Stress Level           ↓
+(Facial expression)            ↓
+  ↓                        Send Alert
+Generate Scores
+(Focus % + Stress Level)
+  ↓
+Update Mobile App Dashboard
+  ↓
+Send Report to Parents
+  ↓
+Check Session End?
+  ↓
+[NO] ----------- [YES]
+  ↓                 ↓
+Continue Loop     STOP
